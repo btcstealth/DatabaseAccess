@@ -24,10 +24,11 @@ public class DBNode {
 
         List<Node> nodeList = new ArrayList<Node>();
         String idsString = formatIdsToString(ids);
+        String query = "SELECT id, lat, lon FROM planet_osm_nodes WHERE id IN (" + idsString + ")";
 
         try{
             Statement st = con.createStatement();
-            ResultSet res = st.executeQuery("SELECT id, lat, lon FROM planet_osm_nodes WHERE id IN (" + idsString + ")");
+            ResultSet res = st.executeQuery(query);
 
             while (res.next()){
                 Node nodeObj = new Node();
