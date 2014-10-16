@@ -9,6 +9,7 @@ import java.util.List;
 public class Way {
     private long id;
     private List<Long> node_ids = new ArrayList<Long>();
+    private List<Node> assocNodes = new ArrayList<Node>();
 
     public Way() {
     }
@@ -33,5 +34,13 @@ public class Way {
 
     public void setNode_ids(List<Long> node_ids) {
         this.node_ids = node_ids;
+    }
+
+    public List<Node> getAssocNodes() {
+        return assocNodes;
+    }
+
+    public void setAssocNodes(List<Node> assocNodes) {
+        this.assocNodes = assocNodes;
     }
 }

@@ -28,6 +28,10 @@ public class DBConnect {
 
     // Connects to the server
     public DBConnect(){
+
+    }
+
+    public static void connect(){
         try {
             // Specifies driver details
             Class.forName(driver).newInstance();
@@ -36,6 +40,8 @@ public class DBConnect {
 
             // Specifies connection details
             conn = DriverManager.getConnection(url + dbName, userName, password);
+
+            System.out.println("Connected");
         }
         catch (SQLException se){
             System.out.println(se);
@@ -45,6 +51,7 @@ public class DBConnect {
             e.printStackTrace();
         }
     }
+
 
     // Getter function for other database classes to fetch the connection object
     public Connection getDBcon(){
